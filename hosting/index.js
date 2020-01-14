@@ -16,6 +16,13 @@ const runAsync = async () => {
   // provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   const result = await firebase.auth().signInWithPopup(provider);
   console.log(result);
+  
+  var db = firebase.firestore();
+  await db.collection("cities").doc("LA").set({
+    name: "Los Angeles",
+    state: "CA",
+    country: "USA"
+  })
 };
   
 runAsync()
