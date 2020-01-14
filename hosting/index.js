@@ -18,12 +18,19 @@ const runAsync = async () => {
   console.log(result);
   
   var db = firebase.firestore();
-  await db.collection("cities").doc("LA").set({
-    name: "Los Angeles",
-    state: "CA",
-    country: "USA"
-  })
+  await db.collection("cities").add({
+      name: "Tokyo",
+      country: "Japan"
+  });
+  
+  db.collection("cities")
+    .onSnapshot(function (response) {
+      console.log(response);
+      console.log(response.docs.map(i => i.data()));
+    });
 };
+
+const chatService = {};
   
 runAsync()
 .catch(console.error);
