@@ -1,0 +1,13 @@
+html,
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.screen{
+    width: 375px;
+    height: 667px;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
